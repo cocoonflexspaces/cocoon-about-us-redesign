@@ -3,76 +3,186 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us — Cocoon Flex Spaces</title>
-  <meta name="description" content="Cocoon Flex Spaces is New York City's only fully managed marketplace for design-forward private venues. Founded in 2019 by interior designer Eduard Monteagudo.">
+  <title>About — Cocoon Flex Spaces</title>
+  <meta name="description" content="Cocoon Flex Spaces unlocks New York City's most extraordinary private venues for brands, productions, and events that demand more than ordinary.">
 
   <style>
-    /* ─── BRAND TOKENS ─────────────────────────────────────────── */
+    /* ─── TOKENS ──────────────────────────────────────────────── */
     :root {
-      --cream:       #F5F2E8;
-      --cream-deep:  #ECE7D6;
-      --cream-warm:  #EFE9D7;
-      --terracotta:  #F54029;
-      --teal:        #275453;
-      --ink:         #1A1A1A;
-      --ink-soft:    #4A4A4A;
-      --rule:        rgba(26,26,26,0.12);
-      --radius:      8px;
+      --cream:      #F5F2E8;
+      --cream-deep: #ECE7D6;
+      --terracotta: #F54029;
+      --teal:       #275453;
+      --ink:        #1A1A1A;
+      --ink-soft:   #4A4A4A;
+      --rule:       rgba(26,26,26,0.12);
+      --radius:     8px;
     }
 
-    /* ─── RESET + BASE ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       background: var(--cream);
       color: var(--ink);
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
 
-    /* ─── UTILITIES ────────────────────────────────────────────── */
+    /* ─── EYEBROW ─────────────────────────────────────────────── */
     .eyebrow {
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--terracotta);
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
-    .eyebrow--cream { color: rgba(245,242,232,0.65); }
-    .eyebrow--teal  { color: #7FAFAE; }
+    .eyebrow--cream { color: rgba(245,242,232,0.55); }
+    .eyebrow--teal  { color: rgba(245,242,232,0.55); }
 
-    .rule-bar {
-      width: 40px;
-      height: 2px;
+    /* ─── SITE NAV ───────────────────────────────────────────────── */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 72px;
+      background: #fff;
+      border-bottom: 1px solid rgba(26,26,26,0.08);
+    }
+    .site-nav__logo img {
+      height: 30px;
+      width: auto;
+      display: block;
+    }
+    .site-nav__links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .site-nav__links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+    .site-nav__links a:hover { color: var(--terracotta); }
+    .site-nav__actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .site-nav__contact {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+    }
+    .site-nav__monetize {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
       background: var(--terracotta);
-      margin: 28px 0;
+      padding: 10px 20px;
+      border-radius: 2px;
+      white-space: nowrap;
     }
-    .rule-bar--cream  { background: rgba(245,242,232,0.35); }
-    .rule-bar--teal   { background: #7FAFAE; }
-    .rule-bar--ink    { background: var(--ink); opacity: 0.18; }
 
-    /* ─── SECTIONS ─────────────────────────────────────────────── */
-    .section            { padding: 120px 80px; }
-    .section--cream     { background: var(--cream); }
-    .section--cream-deep{ background: var(--cream-deep); }
-    .section--teal      { background: var(--teal); color: var(--cream); }
-    .section--ink       { background: var(--ink); color: var(--cream); }
+    /* ─── SITE FOOTER ─────────────────────────────────────────── */
+    .site-footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 72px 80px 40px;
+    }
+    .site-footer__top {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 80px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(245,242,232,0.1);
+      margin-bottom: 32px;
+    }
+    .site-footer__logo img {
+      height: 80px;
+      width: auto;
+    }
+    .site-footer__cols {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 40px;
+    }
+    .site-footer__col-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(245,242,232,0.45);
+      margin-bottom: 16px;
+    }
+    .site-footer__col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .site-footer__col ul a {
+      font-size: 13px;
+      color: rgba(245,242,232,0.7);
+      line-height: 1.4;
+      transition: color 0.2s;
+    }
+    .site-footer__col ul a:hover { color: var(--cream); }
+    .site-footer__contact-block {
+      font-size: 13px;
+      color: rgba(245,242,232,0.7);
+      line-height: 1.8;
+    }
+    .site-footer__contact-block a { color: rgba(245,242,232,0.7); }
+    .site-footer__contact-block .footer-cta {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      border-bottom: 1px solid var(--terracotta);
+      padding-bottom: 1px;
+    }
+    .site-footer__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: rgba(245,242,232,0.3);
+    }
+    @media (max-width: 1024px) {
+      .site-footer__top { grid-template-columns: 1fr; gap: 40px; }
+      .site-footer__cols { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      .site-nav { padding: 0 20px; }
+      .site-nav__links { display: none; }
+      .site-footer { padding: 56px 24px 32px; }
+      .site-footer__cols { grid-template-columns: 1fr 1fr; }
+    }
 
-    .container { max-width: 1200px; margin: 0 auto; }
-
-
-    /* ═══════════════════════════════════════════════════════
+    /* ═══════════════════════════════════════════════════════════
        1. HERO
-    ═══════════════════════════════════════════════════════ */
+    ═══════════════════════════════════════════════════════════ */
     .hero {
       position: relative;
-      height: 92vh;
-      min-height: 620px;
+      height: 100vh;
+      min-height: 640px;
       background: var(--terracotta);
       display: flex;
       align-items: flex-end;
@@ -81,303 +191,240 @@
     .hero__bg {
       position: absolute;
       inset: 0;
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       object-fit: cover;
+      object-position: center 40%;
       mix-blend-mode: multiply;
       opacity: 0.32;
     }
     .hero__content {
       position: relative;
       z-index: 2;
-      padding: 80px;
-      max-width: 860px;
+      padding: 0 80px 96px;
+      max-width: 960px;
     }
-    .hero__badge {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
+    .hero__headline {
+      font-size: clamp(44px, 7vw, 88px);
+      font-weight: 800;
+      line-height: 1.02;
       color: var(--cream);
-      opacity: 0.72;
-      border: 1px solid rgba(245,242,232,0.38);
-      padding: 8px 16px;
-      border-radius: 2px;
-      margin-bottom: 48px;
+      letter-spacing: -0.025em;
     }
-    .hero__h1 {
-      font-size: clamp(44px, 6vw, 84px);
-      font-weight: 700;
-      color: var(--cream);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin-bottom: 32px;
-    }
-    .hero__h1 em {
+    .hero__headline em {
       font-style: normal;
-      color: rgba(245,242,232,0.5);
+      color: rgba(245,242,232,0.38);
     }
     .hero__sub {
-      font-size: clamp(17px, 1.8vw, 21px);
+      margin-top: 40px;
+      font-size: 16px;
       font-weight: 400;
-      color: var(--cream);
-      opacity: 0.82;
-      max-width: 560px;
-      line-height: 1.55;
+      line-height: 1.65;
+      color: rgba(245,242,232,0.75);
+      max-width: 480px;
     }
-
-
-    /* ═══════════════════════════════════════════════════════
-       2. ORIGIN
-    ═══════════════════════════════════════════════════════ */
-    .origin {
-      display: grid;
-      grid-template-columns: 3fr 2fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .origin__text h2 {
-      font-size: clamp(32px, 3.5vw, 52px);
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 36px;
-    }
-    .origin__text p {
-      font-size: 17px;
-      color: var(--ink-soft);
-      line-height: 1.75;
-      margin-bottom: 24px;
-    }
-    .origin__text p strong { color: var(--ink); font-weight: 600; }
-
-    .origin__visual { display: flex; flex-direction: column; gap: 24px; position: sticky; top: 80px; }
-    .origin__visual img {
-      width: 100%;
-      object-fit: cover;
-      border-radius: var(--radius);
-    }
-    .origin__visual img:first-child { aspect-ratio: 4/3; }
-    .origin__visual img:last-child  { aspect-ratio: 4/3; }
-    .origin__caption {
-      font-size: 12px;
-      color: var(--ink-soft);
-      opacity: 0.55;
-      font-style: italic;
-      margin-top: -16px;
-    }
-
-    /* Incubator callout */
-    .incubator-note {
-      background: var(--cream-deep);
-      border-left: 3px solid var(--terracotta);
-      padding: 24px 28px;
-      border-radius: 0 var(--radius) var(--radius) 0;
-      margin-top: 8px;
-    }
-    .incubator-note__label {
+    .hero__scroll {
+      position: absolute;
+      bottom: 40px;
+      right: 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: rgba(245,242,232,0.75);
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      animation: scrollBob 2.2s ease-in-out infinite;
+    }
+    .hero__scroll svg {
+      width: 28px;
+      height: 28px;
+      stroke: rgba(245,242,232,0.85);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    @keyframes scrollBob {
+      0%, 100% { transform: translateY(0);   opacity: 0.75; }
+      50%       { transform: translateY(8px); opacity: 1; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       2. WHAT WE DO
+    ═══════════════════════════════════════════════════════════ */
+    .what {
+      background: var(--teal);
+      color: var(--cream);
+      padding: 96px 80px;
+    }
+    .what__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .what__label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(245,242,232,0.5);
+    }
+    .what__statement {
+      font-size: clamp(26px, 3.2vw, 40px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .what__body {
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(245,242,232,0.78);
+    }
+    .what__body p + p { margin-top: 20px; }
+
+    /* ═══════════════════════════════════════════════════════════
+       3. AUTHORITY
+    ═══════════════════════════════════════════════════════════ */
+    .authority {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 96px 80px;
+    }
+    .authority__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .authority__header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      margin-bottom: 72px;
+      padding-bottom: 72px;
+      border-bottom: 1px solid rgba(245,242,232,0.1);
+    }
+    .authority__headline {
+      font-size: clamp(28px, 3vw, 38px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .authority__intro {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(245,242,232,0.65);
+      align-self: center;
+    }
+    .authority__credentials {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+    @media (max-width: 1024px) {
+      .authority__credentials { grid-template-columns: repeat(2, 1fr); }
+    }
+    .cred {
+      border-top: 1px solid rgba(245,242,232,0.15);
+      padding-top: 28px;
+    }
+    .cred__num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--terracotta);
-      margin-bottom: 8px;
-    }
-    .incubator-note p {
-      font-size: 14px !important;
-      color: var(--ink-soft) !important;
-      line-height: 1.65 !important;
-      margin-bottom: 0 !important;
-    }
-
-
-    /* ═══════════════════════════════════════════════════════
-       3. THE SYMBOL (diatoms / Gaia)
-    ═══════════════════════════════════════════════════════ */
-    .symbol {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .symbol__visual {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      position: sticky;
-      top: 80px;
-    }
-
-    /* Hero diatom — full-column specimen image */
-    .symbol__diatom-hero img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      border-radius: var(--radius);
-      filter: sepia(12%) contrast(1.08) brightness(1.02);
-      display: block;
-    }
-
-    /* Supporting diatom pair */
-    .symbol__diatom-pair {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-    .symbol__diatom-pair img {
-      width: 100%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-      border-radius: var(--radius);
-      filter: sepia(18%) contrast(1.10) brightness(1.01);
-      display: block;
-    }
-
-    /* Mark panel — the abstraction, below the source material */
-    .symbol__mark-panel {
-      background: var(--cream);
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      padding: 28px 36px;
-    }
-    .symbol__mark-panel img {
-      width: 80px;
-      height: 80px;
-      flex-shrink: 0;
-      object-fit: contain;
-    }
-    .symbol__mark-text {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .symbol__mark-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--ink);
-      letter-spacing: -0.01em;
-    }
-    .symbol__mark-label {
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      opacity: 0.5;
-    }
-    .symbol__caption {
-      font-size: 11px;
-      color: var(--ink-soft);
-      opacity: 0.45;
-      font-style: italic;
-      text-align: center;
-    }
-    .symbol__text h2 {
-      font-size: clamp(28px, 3vw, 44px);
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 32px;
-    }
-    .symbol__text p {
-      font-size: 17px;
-      color: var(--ink-soft);
-      line-height: 1.75;
-      margin-bottom: 24px;
-    }
-    .symbol__text p strong { color: var(--ink); font-weight: 600; }
-    .symbol__text p em { color: var(--ink); }
-
-    .gaia-quote {
-      margin-top: 40px;
-      padding: 32px 0 0;
-      border-top: 1px solid var(--rule);
-    }
-    .gaia-quote p {
-      font-size: 18px !important;
-      font-style: italic;
-      color: var(--ink) !important;
-      line-height: 1.55 !important;
-      margin-bottom: 12px !important;
-    }
-    .gaia-quote cite {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      opacity: 0.55;
-      font-style: normal;
-    }
-
-
-    /* ═══════════════════════════════════════════════════════
-       4. TRACK RECORD
-    ═══════════════════════════════════════════════════════ */
-    .track-intro {
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto 72px;
-    }
-    .track-intro h2 {
-      font-size: clamp(28px, 3vw, 44px);
-      font-weight: 700;
-      letter-spacing: -0.02em;
       margin-bottom: 16px;
     }
-    .track-intro p {
-      font-size: 17px;
-      color: var(--ink-soft);
-      line-height: 1.7;
+    .cred__title {
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .cred__body {
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(245,242,232,0.55);
     }
 
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      margin-bottom: 72px;
+    /* ═══════════════════════════════════════════════════════════
+       4. SPACES
+    ═══════════════════════════════════════════════════════════ */
+    .spaces {
+      background: var(--cream-deep);
+      padding: 96px 80px;
     }
-    .stat-tile {
-      background: var(--cream);
-      padding: 48px 40px;
+    .spaces__inner {
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .stat-tile__number {
-      font-size: clamp(40px, 4vw, 64px);
+    .spaces__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+    }
+    .spaces__headline {
+      font-size: clamp(28px, 3vw, 38px);
       font-weight: 700;
-      color: var(--ink);
-      letter-spacing: -0.03em;
-      line-height: 1;
-      margin-bottom: 10px;
+      letter-spacing: -0.02em;
     }
-    .stat-tile__number span { color: var(--terracotta); }
-    .stat-tile__label {
+    .spaces__link {
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--ink-soft);
+      color: var(--terracotta);
+      border-bottom: 1px solid var(--terracotta);
+      padding-bottom: 2px;
     }
-    .stat-tile__sub {
-      font-size: 13px;
+    .spaces__mosaic {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 12px;
+    }
+    .spaces__mosaic-main {
+      grid-row: 1 / 3;
+    }
+    .spaces__mosaic-main img,
+    .spaces__mosaic-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+    .spaces__mosaic-main { height: 540px; }
+    .spaces__mosaic-side { height: 260px; }
+    .spaces__caption {
+      margin-top: 20px;
+      font-size: 12px;
       color: var(--ink-soft);
-      margin-top: 6px;
-      opacity: 0.7;
+      letter-spacing: 0.04em;
     }
 
-    /* Clients marquee */
-    .clients { border-top: 1px solid var(--rule); padding-top: 48px; }
+    /* ═══════════════════════════════════════════════════════════
+       5. CLIENTS
+    ═══════════════════════════════════════════════════════════ */
+    .clients {
+      background: var(--cream);
+      padding: 80px;
+      border-top: 1px solid var(--rule);
+    }
+    .clients__inner { max-width: 1200px; margin: 0 auto; }
     .clients__label {
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--ink-soft);
-      margin-bottom: 24px;
-      opacity: 0.65;
+      margin-bottom: 40px;
     }
     .clients__marquee-outer {
       overflow: hidden;
@@ -386,558 +433,163 @@
     }
     .clients__marquee-track {
       display: flex;
-      gap: 64px;
+      gap: 72px;
       width: max-content;
-      animation: clients-scroll 34s linear infinite;
+      animation: marquee 36s linear infinite;
       align-items: center;
     }
     .clients__marquee-track:hover { animation-play-state: paused; }
-    @keyframes clients-scroll {
+    @keyframes marquee {
       0%   { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
     .clients__marquee-track img {
       height: 22px;
       width: auto;
-      object-fit: contain;
-      filter: grayscale(100%) opacity(0.45);
-      transition: filter 0.2s;
+      filter: grayscale(100%) opacity(0.42);
+      transition: filter 0.3s;
     }
     .clients__marquee-track img:hover { filter: grayscale(0%) opacity(0.85); }
 
-
-    /* ═══════════════════════════════════════════════════════
-       5. PHILOSOPHY
-    ═══════════════════════════════════════════════════════ */
-    .pullquote {
-      max-width: 860px;
-      margin: 0 auto 100px;
-      text-align: center;
-    }
-    .pullquote__mark {
-      font-size: 80px;
-      line-height: 0.5;
-      color: var(--terracotta);
-      font-family: Georgia, serif;
-      display: block;
-      margin-bottom: 32px;
-    }
-    .pullquote__text {
-      font-size: clamp(22px, 2.5vw, 34px);
-      font-weight: 400;
-      color: var(--ink);
-      line-height: 1.45;
-      letter-spacing: -0.01em;
-      font-style: italic;
-    }
-    .pullquote__attr {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      margin-top: 32px;
-      opacity: 0.55;
-    }
-
-    .philosophy-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-    }
-    .philosophy-tile { background: var(--cream-deep); padding: 56px 48px; }
-    .philosophy-tile__number {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      margin-bottom: 32px;
-    }
-    .philosophy-tile__title {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 20px;
-      line-height: 1.2;
-      letter-spacing: -0.01em;
-    }
-    .philosophy-tile__body {
-      font-size: 15px;
-      color: var(--ink-soft);
-      line-height: 1.75;
-    }
-
-
-    /* ═══════════════════════════════════════════════════════
-       6. VISION / MISSION (TEAL)
-    ═══════════════════════════════════════════════════════ */
-    .vision {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .vision__left h2 {
-      font-size: clamp(32px, 3.5vw, 52px);
-      font-weight: 700;
-      color: var(--cream);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 36px;
-    }
-    .vision__left p {
-      font-size: 17px;
-      color: rgba(245,242,232,0.78);
-      line-height: 1.75;
-      margin-bottom: 24px;
-    }
-    .vision__left p strong { color: var(--cream); font-weight: 600; }
-
-    .vision__points { margin-top: 56px; display: flex; flex-direction: column; gap: 36px; }
-    .vision__point { border-top: 1px solid rgba(245,242,232,0.18); padding-top: 28px; }
-    .vision__point-title {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #7FAFAE;
-      margin-bottom: 10px;
-    }
-    .vision__point-body {
-      font-size: 15px;
-      color: rgba(245,242,232,0.7);
-      line-height: 1.7;
-    }
-
-    .era-card {
-      background: rgba(245,242,232,0.07);
-      border: 1px solid rgba(245,242,232,0.15);
-      border-radius: var(--radius);
-      padding: 48px;
-      position: sticky;
-      top: 80px;
-    }
-    .era-card__badge {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #7FAFAE;
-      border: 1px solid rgba(127,175,174,0.4);
-      padding: 6px 14px;
-      border-radius: 2px;
-      display: inline-block;
-      margin-bottom: 28px;
-    }
-    .era-card__horizon {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(127,175,174,0.65);
-      margin-bottom: 16px;
-    }
-    .era-card__title {
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--cream);
-      line-height: 1.25;
-      letter-spacing: -0.01em;
-      margin-bottom: 18px;
-    }
-    .era-card__body {
-      font-size: 15px;
-      color: rgba(245,242,232,0.7);
-      line-height: 1.75;
-    }
-    .era-card__divider { height: 1px; background: rgba(245,242,232,0.12); margin: 28px 0; }
-    .era-card__list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-    .era-card__list li {
-      font-size: 14px;
-      color: rgba(245,242,232,0.62);
-      padding-left: 18px;
-      position: relative;
-      line-height: 1.5;
-    }
-    .era-card__list li::before { content: '→'; position: absolute; left: 0; color: #7FAFAE; font-size: 11px; }
-
-
-    /* ═══════════════════════════════════════════════════════
-       7. FOUNDER
-    ═══════════════════════════════════════════════════════ */
-    .founder {
-      display: grid;
-      grid-template-columns: 2fr 3fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .founder__image img {
-      width: 100%;
-      aspect-ratio: 3/4;
-      object-fit: cover;
-      object-position: top;
-      border-radius: var(--radius);
-    }
-    .founder__image figcaption {
-      font-size: 12px;
-      color: var(--ink-soft);
-      margin-top: 12px;
-      opacity: 0.5;
-      font-style: italic;
-    }
-    .founder__text h2 {
-      font-size: clamp(28px, 3vw, 44px);
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
-    }
-    .founder__title {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--terracotta);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 36px;
-    }
-    .founder__text p {
-      font-size: 17px;
-      color: var(--ink-soft);
-      line-height: 1.75;
-      margin-bottom: 24px;
-    }
-    .founder__text p strong { color: var(--ink); font-weight: 600; }
-    .founder__text p em { color: var(--ink); }
-
-    .founder__credentials {
-      margin-top: 48px;
-      padding-top: 40px;
-      border-top: 1px solid var(--rule);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    .credential__label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      opacity: 0.55;
-      margin-bottom: 4px;
-    }
-    .credential__value {
-      font-size: 14px;
-      color: var(--ink);
-      line-height: 1.4;
-    }
-
-
-    /* ═══════════════════════════════════════════════════════
-       8. CTA
-    ═══════════════════════════════════════════════════════ */
-    .cta-section {
-      text-align: center;
-      padding: 120px 80px;
-    }
-    .cta-section h2 {
-      font-size: clamp(32px, 4vw, 60px);
-      font-weight: 700;
-      color: var(--cream);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 20px;
-    }
-    .cta-section p {
-      font-size: 18px;
-      color: rgba(245,242,232,0.6);
-      margin-bottom: 52px;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex;
+    /* ═══════════════════════════════════════════════════════════
+       6. CTA
+    ═══════════════════════════════════════════════════════════ */
+    .cta-bar {
+      background: var(--terracotta);
+      padding: 64px 80px;
+      display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .cta-bar__text {
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .cta-bar__btn {
+      flex-shrink: 0;
+      display: inline-block;
       padding: 16px 36px;
+      background: var(--cream);
+      color: var(--terracotta);
       font-size: 13px;
       font-weight: 700;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       border-radius: 2px;
-      cursor: pointer;
-      transition: opacity 0.2s;
+      white-space: nowrap;
     }
-    .btn:hover { opacity: 0.82; }
-    .btn--primary { background: var(--terracotta); color: var(--cream); }
-    .btn--outline  { background: transparent; color: var(--cream); border: 1px solid rgba(245,242,232,0.32); }
 
+    /* ─── MOBILE ──────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .topbar { padding: 16px 24px; }
+      .hero__content { padding: 0 24px 72px; }
+      .what { padding: 64px 24px; }
+      .what__inner { grid-template-columns: 1fr; gap: 40px; }
+      .authority { padding: 64px 24px; }
+      .authority__header { grid-template-columns: 1fr; gap: 28px; margin-bottom: 48px; padding-bottom: 48px; }
+      .authority__credentials { grid-template-columns: 1fr; gap: 36px; }
+      .spaces { padding: 64px 24px; }
+      .spaces__mosaic { grid-template-columns: 1fr; }
+      .spaces__mosaic-main { height: 320px; grid-row: auto; }
+      .spaces__mosaic-side { height: 200px; }
+      .clients { padding: 56px 24px; }
+      .cta-bar { padding: 48px 24px; flex-direction: column; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
 
+  <!-- ── SITE NAV ──────────────────────────────────────────────── -->
+  <header class="site-nav">
+    <a class="site-nav__logo" href="https://cocoonflexspaces.com">
+      <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/logo.png" alt="Cocoon">
+    </a>
+    <ul class="site-nav__links">
+      <li><a href="https://cocoonflexspaces.com/">Spaces</a></li>
+      <li><a href="https://cocoonflexspaces.com/search-event-spaces-by-activity-nyc/">Activities</a></li>
+      <li><a href="https://cocoonflexspaces.com/create-space-blog/">Community</a></li>
+    </ul>
+    <div class="site-nav__actions">
+      <a class="site-nav__contact" href="https://cocoonflexspaces.com/request-a-booking/">Contact Us</a>
+      <a class="site-nav__monetize" href="https://cocoonflexspaces.com/monetize-your-space/">Monetize Your Space</a>
+    </div>
+  </header>
+
 
   <!-- ═══════════════════════════════════════════════════════════
-       1. HERO MANIFESTO
+       1. HERO
   ════════════════════════════════════════════════════════════ -->
   <section class="hero">
-    <img class="hero__bg" src="img/hero-bg.jpg" alt="Cocoon venue interior">
+    <img class="hero__bg" src="img/hero-bg.jpg" alt="Cocoon venue">
     <div class="hero__content">
-      <div class="hero__badge">Est. 2019 &nbsp;·&nbsp; New York City &nbsp;·&nbsp; Year Seven</div>
-      <h1 class="hero__h1">
-        New York is full of extraordinary spaces.
-        <em>Most of them sit empty.</em>
+      <div class="eyebrow eyebrow--cream">Cocoon Flex Spaces · New York City</div>
+      <h1 class="hero__headline">
+        New York is full of extraordinary spaces.<br>
+        <em>Most of them sit inaccessible.</em>
       </h1>
-      <p class="hero__sub">
-        We were the first to unlock them — and built an entirely new industry in doing it.
-      </p>
+      <p class="hero__sub">We unlock them — for the brands, productions, and events that demand more than ordinary.</p>
+    </div>
+    <div class="hero__scroll">
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
   </section>
 
 
   <!-- ═══════════════════════════════════════════════════════════
-       2. ORIGIN STORY
+       2. WHAT WE DO
   ════════════════════════════════════════════════════════════ -->
-  <section class="section section--cream">
-    <div class="container">
-      <div class="origin">
-
-        <div class="origin__text">
-          <div class="eyebrow">Origin Story</div>
-          <div class="rule-bar"></div>
-
-          <h2>Space as a matrix.</h2>
-
-          <p>
-            Eduard Monteagudo grew up on job sites. Surrounded by architects, contractors, and designers,
-            he spent his childhood moving through spaces mid-transformation — watching rooms become
-            something entirely different from what they had been. That experience never left him.
-          </p>
-
-          <p>
-            He went on to build a career across every discipline of space design in Barcelona:
-            <strong>residential and commercial interiors, experimental design,
-            art installations, music sets, set design, and conceptual work</strong> — collaborating
-            with studios like Studio Animal on projects that pushed the boundaries of what designed
-            environments could do and say.
-          </p>
-
-          <p>
-            His final thesis at EINA — titled <strong>Tinglado</strong> — already contained the seeds
-            of what Cocoon would become: <strong>how do you make design inclusive instead of exclusive?
-            How do you use it as a tool to build diversified communities around it?</strong>
-            Those questions — not a business opportunity — were the origin of everything that followed.
-          </p>
-
-          <p>
-            When Eduard moved to New York, he carried those ideas with him. He created
-            <strong>988Manhattan</strong> — an incubator that became the crucible for the next three years,
-            where the conceptual arguments of his thesis were tested, challenged, and eventually
-            shaped into a business model capable of surviving contact with one of the most
-            competitive real estate markets on Earth.
-          </p>
-
-          <div class="incubator-note">
-            <div class="incubator-note__label">988Manhattan Incubator · 2016–2019</div>
-            <p>
-              Eduard didn't just work at 988Manhattan — he lived inside it. The incubator was
-              itself a space in constant transformation: a full laboratory that became, over three
-              years, the first iteration of what Cocoon would be. The conceptual arguments of
-              Tinglado were tested here against the hardest real estate market in the world.
-            </p>
-          </div>
-
-          <p style="margin-top: 32px;">
-            <strong>In June 2019, Cocoon launched with three properties.</strong>
-            Eduard negotiated something unusual with the first property owner: the right to live
-            in the space. <strong>Casa Koddous became his home.</strong> He experienced firsthand
-            what it meant to be responsible for a space someone else owned — the trust involved,
-            the operational reality, the specific intelligence that only comes from truly
-            inhabiting a place. That understanding is baked into how Cocoon works with every
-            property owner today.
-          </p>
-
-          <p>
-            For the three years that followed, Eduard lived nomadically across New York City —
-            moving between neighborhoods, absorbing each one's distinct character and pace of life.
-            Williamsburg to Harlem. The Upper West Side to Carroll Gardens. It was an extended,
-            deliberate education in how people inhabit the same city in profoundly different ways —
-            and what extraordinary spaces in each of those worlds actually look like from the inside.
-          </p>
-        </div>
-
-        <div class="origin__visual">
-          <!-- PLACEHOLDER: Photo of Eduard at 988Manhattan incubator -->
-          <div style="width:100%;aspect-ratio:4/3;background:var(--cream-deep);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;border:1px dashed rgba(26,26,26,0.15);">
-            <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);opacity:0.4;">Eduard at 988Manhattan</span>
-          </div>
-
-          <!-- PLACEHOLDER: An event at the incubator -->
-          <div style="width:100%;aspect-ratio:4/3;background:var(--cream-deep);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;border:1px dashed rgba(26,26,26,0.15);">
-            <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);opacity:0.4;">Event at 988Manhattan</span>
-          </div>
-
-          <p class="origin__caption">988Manhattan Incubator, New York City · 2016–2019</p>
-        </div>
-
+  <section class="what">
+    <div class="what__inner">
+      <div>
+        <div class="what__label">What we do</div>
+        <h2 class="what__statement">NYC's only fully managed marketplace for design-forward private venues.</h2>
       </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════
-       3. THE SYMBOL — diatoms, Gaia, the Cocoon mark
-  ════════════════════════════════════════════════════════════ -->
-  <section class="section section--cream-deep">
-    <div class="container">
-      <div class="symbol">
-
-        <div class="symbol__visual">
-
-          <!-- Hero specimen — full column width -->
-          <div class="symbol__diatom-hero">
-            <img src="img/diatom-1.webp" alt="Haeckel Diatomea — Kunstformen der Natur, 1904">
-          </div>
-
-          <!-- Supporting specimens -->
-          <div class="symbol__diatom-pair">
-            <img src="img/diatom-2.jpg" alt="Diatom microscopy">
-            <img src="img/diatom-3.jpg" alt="Diatom detail" style="object-position: center 30%;">
-          </div>
-
-          <p class="symbol__caption">Diatomea, Ernst Haeckel · Kunstformen der Natur, 1904</p>
-
-          <!-- Mark as quiet conclusion: source → abstraction -->
-          <div class="symbol__mark-panel">
-            <img src="img/mark-128.png" alt="Cocoon mark">
-            <div class="symbol__mark-text">
-              <span class="symbol__mark-title">The Cocoon Mark</span>
-              <span class="symbol__mark-label">Inspired by diatoms · 2019</span>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="symbol__text">
-          <div class="eyebrow">The Symbol</div>
-          <div class="rule-bar"></div>
-
-          <h2>Cocoon is transformation.</h2>
-
-          <p>
-            Eduard has always taken nature as his primary design reference. Not as decoration,
-            but as a structural logic — the way living systems solve problems of form,
-            function, and coexistence at every scale.
-          </p>
-
-          <p>
-            The Cocoon mark is inspired by <strong>diatoms</strong> — microscopic organisms
-            that live at the foundation of Earth's ecosystems. Despite being invisible to the
-            naked eye, diatoms produce roughly a quarter of all the oxygen on the planet.
-            Their glass-like shells are among the most intricate geometric forms in nature:
-            structured, purposeful, extraordinarily beautiful.
-          </p>
-
-          <p>
-            They are proof of something Eduard believes deeply: <strong>that the smallest,
-            least visible element in a system can be the one everything else depends on.</strong>
-          </p>
-
-          <div class="gaia-quote">
-            <p>
-              James Lovelock's Gaia hypothesis describes Earth as a single self-regulating
-              living system — one where every organism, from the diatom to the redwood,
-              plays a necessary role in maintaining the conditions for life.
-              No element is expendable. No participant is merely instrumental.
-            </p>
-            <p style="margin-top: 20px;">
-              That is the philosophy behind Cocoon. <strong>Every party in the city ecosystem —
-              the property owner, the brand, the creator, the neighborhood — is a dignified
-              node in a network, not a transaction in a chain.</strong> When each one is treated
-              that way, the whole system produces something none of them could alone.
-            </p>
-            <cite>After James Lovelock, <em>Gaia: A New Look at Life on Earth</em></cite>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════
-       4. TRACK RECORD
-  ════════════════════════════════════════════════════════════ -->
-  <section class="section section--cream">
-    <div class="container">
-
-      <div class="track-intro">
-        <div class="eyebrow">Seven Years In</div>
-        <h2>Built entirely without outside capital.</h2>
-        <p>
-          From three properties in 2019 to New York City's leading managed venue platform —
-          entirely self-funded, entirely organic.
+      <div class="what__body">
+        <p>We source, curate, and manage a private portfolio of venues that aren't available anywhere else — properties whose owners would never list publicly, in neighborhoods that define the city's creative edge.</p>
+        <p>Every booking comes with full concierge support: venue access, vendor coordination, and on-site management. You bring the vision. We make it happen.</p>
+        <p style="margin-top: 36px; padding-top: 32px; border-top: 1px solid rgba(245,242,232,0.15); font-size: 14px; color: rgba(245,242,232,0.5);">
+          There's a bigger reason we do this. &nbsp;<a href="https://cocoonflexspaces.com/mission/" style="color: rgba(245,242,232,0.7); border-bottom: 1px solid rgba(245,242,232,0.3); padding-bottom: 1px;">Read our mission →</a>
         </p>
       </div>
+    </div>
+  </section>
 
-      <div class="stats-grid">
-        <div class="stat-tile">
-          <div class="stat-tile__number">45<span>+</span></div>
-          <div class="stat-tile__label">Active Properties</div>
-          <div class="stat-tile__sub">Manhattan, Brooklyn &amp; The Hamptons</div>
-        </div>
-        <div class="stat-tile">
-          <div class="stat-tile__number">99<span>%</span></div>
-          <div class="stat-tile__label">Five-Star Reviews</div>
-          <div class="stat-tile__sub">Across every booking category</div>
-        </div>
-        <div class="stat-tile">
-          <div class="stat-tile__number">7</div>
-          <div class="stat-tile__label">Years in New York City</div>
-          <div class="stat-tile__sub">No venture capital · No outside debt</div>
-        </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       3. AUTHORITY
+  ════════════════════════════════════════════════════════════ -->
+  <section class="authority">
+    <div class="authority__inner">
+
+      <div class="authority__header">
+        <h2 class="authority__headline">Built by someone who has lived inside these spaces.</h2>
+        <p class="authority__intro">Cocoon was founded by Eduard Monteagudo — an interior designer who didn't just study space. He built it, lived in it, and spent years navigating every corner of New York to understand what makes a venue truly extraordinary.</p>
       </div>
 
-      <div class="clients">
-        <div class="clients__label">Trusted by</div>
-        <div class="clients__marquee-outer">
-          <div class="clients__marquee-track">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/netflix.svg" alt="Netflix">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/07/nike.png" alt="Nike">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/hbo.svg" alt="HBO">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/sephora.svg" alt="Sephora">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/google.svg" alt="Google">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/vogue.svg" alt="Vogue">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/apple-logo.svg" alt="Apple">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/amazon.svg" alt="Amazon">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/mastercard.svg" alt="Mastercard">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/disney.svg" alt="Disney">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2025/04/Loreal.png" alt="L'Oréal">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/ABInBevblack.svg" alt="AB InBev">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/ticktok.svg" alt="TikTok">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2025/04/Smuggler.png" alt="Smuggler">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/the-new-times.svg" alt="The New York Times">
-            <!-- Duplicate for seamless loop -->
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/netflix.svg" alt="Netflix">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/07/nike.png" alt="Nike">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/hbo.svg" alt="HBO">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/sephora.svg" alt="Sephora">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/google.svg" alt="Google">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/vogue.svg" alt="Vogue">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/apple-logo.svg" alt="Apple">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/amazon.svg" alt="Amazon">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/mastercard.svg" alt="Mastercard">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/disney.svg" alt="Disney">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2025/04/Loreal.png" alt="L'Oréal">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/ABInBevblack.svg" alt="AB InBev">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/ticktok.svg" alt="TikTok">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2025/04/Smuggler.png" alt="Smuggler">
-            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/the-new-times.svg" alt="The New York Times">
-          </div>
+      <div class="authority__credentials">
+        <div class="cred">
+          <div class="cred__num">01</div>
+          <div class="cred__title">Created 988Manhattan</div>
+          <div class="cred__body">Before Cocoon, Eduard created 988Manhattan — a full-floor design incubator that became the direct precursor to what Cocoon would become. It proved the model: extraordinary spaces, thoughtfully managed, unlock a category that didn't exist.</div>
+        </div>
+        <div class="cred">
+          <div class="cred__num">02</div>
+          <div class="cred__title">Lived in the first Cocoon property</div>
+          <div class="cred__body">As part of the deal with Cocoon's first property owner, Eduard lived in Casa Koddous — giving him direct, first-hand knowledge of what property owners need from a partner.</div>
+        </div>
+        <div class="cred">
+          <div class="cred__num">03</div>
+          <div class="cred__title">3 years nomadic in NYC</div>
+          <div class="cred__body">He spent three years living across New York's neighborhoods — not as a tourist, but as a designer learning every pocket of the city and the people who make it extraordinary.</div>
+        </div>
+        <div class="cred">
+          <div class="cred__num">04</div>
+          <div class="cred__title">Built to serve both sides</div>
+          <div class="cred__body">Because Eduard has been a tenant, a designer, and an operator, Cocoon is built with both sides in mind. Property owners are treated as long-term partners — not listings. Clients get concierge-level support from booking to breakdown.</div>
         </div>
       </div>
 
@@ -946,220 +598,148 @@
 
 
   <!-- ═══════════════════════════════════════════════════════════
-       5. PHILOSOPHY
+       4. SPACES
   ════════════════════════════════════════════════════════════ -->
-  <section class="section section--cream-deep">
-    <div class="container">
+  <section class="spaces">
+    <div class="spaces__inner">
 
-      <div class="pullquote">
-        <span class="pullquote__mark">"</span>
-        <p class="pullquote__text">
-          Each property we curate at Cocoon isn't just about providing space —
-          it's about creating atmospheres where moments turn into milestones.
-        </p>
-        <div class="pullquote__attr">— Eduard Monteagudo, Founder &amp; CEO</div>
-      </div>
-
-      <div class="philosophy-grid">
-
-        <div class="philosophy-tile">
-          <div class="philosophy-tile__number">01 — Curation</div>
-          <h3 class="philosophy-tile__title">Select with intention.</h3>
-          <p class="philosophy-tile__body">
-            Every Cocoon property is reviewed by Eduard personally. Architectural merit,
-            interior character, neighborhood story — we look for spaces that have something
-            to say, then amplify it. The result is a portfolio where no two spaces are alike,
-            and every one is worth the trip.
-          </p>
-        </div>
-
-        <div class="philosophy-tile">
-          <div class="philosophy-tile__number">02 — Operations</div>
-          <h3 class="philosophy-tile__title">Manage every event.</h3>
-          <p class="philosophy-tile__body">
-            A dedicated Casa Manager is on-site for every booking. Owners never have to
-            be involved. Clients never have to worry. From the moment a booking is confirmed
-            to the post-event walkthrough, we carry the responsibility so everyone else
-            can focus on what they came to do.
-          </p>
-        </div>
-
-        <div class="philosophy-tile">
-          <div class="philosophy-tile__number">03 — Design</div>
-          <h3 class="philosophy-tile__title">Design as an ongoing act.</h3>
-          <p class="philosophy-tile__body">
-            Eduard's design background isn't a credential — it's a lens applied to every
-            property we work with. When the space allows it, we intervene: vegetation,
-            art, furniture, light. The goal, across the entire portfolio, is for every Cocoon
-            space to grow more itself over time, not less.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════
-       6. MISSION / VISION (TEAL)
-  ════════════════════════════════════════════════════════════ -->
-  <section class="section section--teal">
-    <div class="container">
-      <div class="vision">
-
-        <div class="vision__left">
-          <div class="eyebrow eyebrow--teal">Where We're Going</div>
-          <div class="rule-bar rule-bar--teal" style="background:#7FAFAE;"></div>
-
-          <h2>Spaces that unlock a city. A city that works for everyone.</h2>
-
-          <p>
-            Tech, health, and transportation have been radically transformed in the last
-            thirty years. Our cities — the actual physical fabric we inhabit — have barely moved.
-            <strong>The reason: real estate is controlled by the most risk-averse investors
-            in the world.</strong>
-          </p>
-
-          <p>
-            Cocoon changes the equation. By bringing genuine cash flow into the least
-            liquid layer of the city, we create the network — of spaces, relationships,
-            and trust — that makes something far larger possible.
-          </p>
-
-          <p>
-            <strong>The vision, from Eduard's thesis to today, has never changed:</strong>
-            design as a tool to build diversified, inclusive communities. A city where
-            extraordinary spaces belong to the whole ecosystem, not just those who can
-            afford to own them.
-          </p>
-
-          <div class="vision__points">
-            <div class="vision__point">
-              <div class="vision__point-title">Unlock the spaces</div>
-              <p class="vision__point-body">
-                We make extraordinary private venues financially viable for their owners —
-                and use that commercial trust to open spaces that self-service platforms
-                cannot access.
-              </p>
-            </div>
-            <div class="vision__point">
-              <div class="vision__point-title">Bring nature back into the city</div>
-              <p class="vision__point-body">
-                Not biophilic plant walls. A more radical ambition: reintroducing nature
-                as living infrastructure — green corridors and environments that challenge
-                how cities are designed and built at the planning level.
-              </p>
-            </div>
-            <div class="vision__point">
-              <div class="vision__point-title">Design for everyone in the network</div>
-              <p class="vision__point-body">
-                From established architects and brand CMOs to minority creators with social
-                visions — Cocoon is where ideas meet venues, and the city of the future
-                gets prototyped in the city of today.
-              </p>
-            </div>
-          </div>
-        </div>
-
+      <div class="spaces__header">
         <div>
-          <div class="era-card">
-            <div class="era-card__badge">Era Commons</div>
-            <div class="era-card__horizon">In Development · Launching 2025–26</div>
-            <h3 class="era-card__title">
-              The social mission arm. Coming next.
-            </h3>
-            <p class="era-card__body">
-              Era Commons will be Cocoon's grant-eligible foundation arm — built city by city,
-              designed to scale alongside every market Cocoon enters.
-              The commercial model and the social mission are the same engine:
-              every landlord, family office, and developer we serve generates the margin
-              that makes Era Commons possible.
-            </p>
-            <div class="era-card__divider"></div>
-            <ul class="era-card__list">
-              <li>Art, culture, and design in underserved communities</li>
-              <li>Urban interventions at every scale — micro to neighborhood-wide</li>
-              <li>A platform for minority creators and urbanists with social visions</li>
-              <li>Profitability and impact as the same engine, not trade-offs</li>
-            </ul>
+          <div class="eyebrow">The Portfolio</div>
+          <h2 class="spaces__headline">Every property, personally curated.</h2>
+        </div>
+        <a class="spaces__link" href="https://cocoonflexspaces.com">Explore all spaces →</a>
+      </div>
+
+      <div class="spaces__mosaic">
+        <div class="spaces__mosaic-main">
+          <img src="img/hero-bg.jpg" alt="Cocoon venue interior">
+        </div>
+        <div class="spaces__mosaic-side">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2025/04/cocoon-casa-arbre-events-room-layered-rugs-access-patio.jpg" alt="Casa Arbre" style="object-position: center 40%;">
+        </div>
+        <div class="spaces__mosaic-side">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/10/cocoon-casa-caeli-second-floor-living-room-to-kitchen-access.jpg" alt="Casa Caeli">
+        </div>
+      </div>
+      <p class="spaces__caption">Casa Maxima · Casa Arbre · Casa Caeli · Casa Joy · and more</p>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       5. CLIENTS
+  ════════════════════════════════════════════════════════════ -->
+  <section class="clients">
+    <div class="clients__inner">
+      <div class="clients__label">Trusted by</div>
+      <div class="clients__marquee-outer">
+        <div class="clients__marquee-track">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/netflix.svg" alt="Netflix">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/07/nike.png" alt="Nike">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/hbo.svg" alt="HBO">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/sephora.svg" alt="Sephora">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/google.svg" alt="Google">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/vogue.svg" alt="Vogue">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/apple-logo.svg" alt="Apple">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/amazon.svg" alt="Amazon">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/mastercard.svg" alt="Mastercard">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/disney.svg" alt="Disney">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2025/04/Loreal.png" alt="L'Oréal">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/ABInBevblack.svg" alt="AB InBev">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/ticktok.svg" alt="TikTok">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/the-new-times.svg" alt="The New York Times">
+          <!-- duplicate for seamless loop -->
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/netflix.svg" alt="Netflix">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/07/nike.png" alt="Nike">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/hbo.svg" alt="HBO">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/sephora.svg" alt="Sephora">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/google.svg" alt="Google">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/vogue.svg" alt="Vogue">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/apple-logo.svg" alt="Apple">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/amazon.svg" alt="Amazon">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/mastercard.svg" alt="Mastercard">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/disney.svg" alt="Disney">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2025/04/Loreal.png" alt="L'Oréal">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/ABInBevblack.svg" alt="AB InBev">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/ticktok.svg" alt="TikTok">
+          <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/the-new-times.svg" alt="The New York Times">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       6. CTA
+  ════════════════════════════════════════════════════════════ -->
+  <div class="cta-bar">
+    <div class="cta-bar__text">Ready to find your space?</div>
+    <a class="cta-bar__btn" href="https://cocoonflexspaces.com/request-a-booking/">Request a booking</a>
+  </div>
+
+  <!-- ── SITE FOOTER ────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="site-footer__top">
+      <div class="site-footer__logo">
+        <img src="https://cocoonflexspaces.com/wp-content/uploads/2022/01/Spin-the-Cocoon-Logo-and-Wordmark-top-header-logo-255x300.png" alt="Cocoon">
+      </div>
+      <div class="site-footer__cols">
+        <div class="site-footer__col">
+          <div class="site-footer__col-title">Company</div>
+          <ul>
+            <li><a href="https://cocoonflexspaces.com/about-us/">About Us</a></li>
+            <li><a href="https://cocoonflexspaces.com/mission/">Mission</a></li>
+            <li><a href="https://cocoonflexspaces.com/powered-by-nature/">Powered by Nature</a></li>
+            <li><a href="https://cocoonflexspaces.com/privacy-policy/">Privacy Policy</a></li>
+            <li><a href="https://cocoonflexspaces.com/terms-of-use/">Terms of Use</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <div class="site-footer__col-title">Connect</div>
+          <ul>
+            <li><a href="https://www.instagram.com/cocoonflexspaces/">Instagram</a></li>
+            <li><a href="https://www.linkedin.com/company/cocoonflexspaces/">LinkedIn</a></li>
+            <li><a href="mailto:info@cocoonflexspaces.com">Email Us</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <div class="site-footer__col-title">Spaces</div>
+          <ul>
+            <li><a href="https://cocoonflexspaces.com/">Explore Spaces</a></li>
+            <li><a href="https://cocoonflexspaces.com/monetize-your-space/">Monetize Your Space</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <div class="site-footer__col-title">Activities</div>
+          <ul>
+            <li><a href="https://cocoonflexspaces.com/search-event-spaces-by-activity-nyc/">Explore Activities</a></li>
+            <li><a href="https://cocoonflexspaces.com/rent-meeting-spaces-in-nyc/">Meetings</a></li>
+            <li><a href="https://cocoonflexspaces.com/rent-production-studios-in-nyc/">Productions</a></li>
+            <li><a href="https://cocoonflexspaces.com/showrooms-for-rent-in-nyc/">Showrooms</a></li>
+            <li><a href="https://cocoonflexspaces.com/rent-private-event-venues-in-nyc/">Private Events</a></li>
+            <li><a href="https://cocoonflexspaces.com/rent-corporate-events-venues-in-nyc/">Corporate Events</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <div class="site-footer__col-title">Contact Us</div>
+          <div class="site-footer__contact-block">
+            Cocoon Flex Spaces LLC<br>
+            228 Park Ave S PMB 36027<br>
+            New York City, NY 10003<br><br>
+            <a href="tel:+19173983938">+1 (917) 398-3938</a><br>
+            <a href="mailto:info@cocoonflexspaces.com">info@cocoonflexspaces.com</a><br>
+            <a class="footer-cta" href="https://cocoonflexspaces.com/request-a-booking/">Request a Booking →</a>
           </div>
         </div>
-
       </div>
     </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════
-       7. FOUNDER
-  ════════════════════════════════════════════════════════════ -->
-  <section class="section section--cream">
-    <div class="container">
-      <div class="founder">
-
-        <figure class="founder__image">
-          <img src="img/portrait-crystal-wood.jpg" alt="Eduard Monteagudo, Founder &amp; CEO of Cocoon Flex Spaces">
-          <figcaption>Photo by Crystal Wood</figcaption>
-        </figure>
-
-        <div class="founder__text">
-          <div class="eyebrow">The Founder</div>
-          <div class="rule-bar"></div>
-
-          <h2>Eduard Monteagudo</h2>
-          <div class="founder__title">Founder &amp; CEO</div>
-
-          <p>
-            Eduard conceived and built Cocoon from zero — no capital, no team, no playbook.
-            Three years at 988Manhattan incubating the model. Seven years proving it works.
-            He closed every booking personally for the first three years and still closes
-            every six-figure activation today.
-          </p>
-
-          <p>
-            His path to Cocoon runs through every discipline of space design.
-            Born into a world of job sites and building transformations, Eduard trained as a
-            <strong>space designer, interior architect, and systems builder</strong> in Barcelona —
-            developing a practice that moved fluidly between residential and commercial interiors,
-            experimental design, art installations, set design, and conceptual work.
-            Studios like Studio Animal, where he collaborated on projects in Barcelona,
-            shaped his conviction that designed environments carry cultural meaning,
-            not just aesthetic value.
-          </p>
-
-          <p>
-            His final thesis, <strong>Tinglado</strong>, argued that design should build inclusive
-            communities — that extraordinary spaces should serve the whole social ecosystem,
-            not only those wealthy enough to own them.
-            <em>Cocoon is that argument, made operational.</em>
-          </p>
-        </div>
-
-      </div>
+    <div class="site-footer__bottom">
+      <span>Cocoon © Copyright 2025 | All Rights Reserved</span>
+      <a href="https://www.trustpilot.com/review/cocoonflexspaces.com" style="color: rgba(245,242,232,0.3);">Trustpilot ↗</a>
     </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════
-       8. CTA
-  ════════════════════════════════════════════════════════════ -->
-  <section class="section--ink">
-    <div class="cta-section">
-      <div class="eyebrow eyebrow--cream">Get started</div>
-      <h2>Ready to experience it?</h2>
-      <p>Explore our portfolio of 45+ design-forward spaces across New York City.</p>
-      <div class="cta-buttons">
-        <a href="https://cocoonflexspaces.com/explore-spaces/" class="btn btn--primary">
-          Explore Spaces &nbsp;→
-        </a>
-        <a href="https://cocoonflexspaces.com/contact/" class="btn btn--outline">
-          Get in Touch
-        </a>
-      </div>
-    </div>
-  </section>
-
+  </footer>
 
 </body>
 </html>
