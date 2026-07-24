@@ -368,7 +368,7 @@
       opacity: 0.7;
     }
 
-    /* Clients strip */
+    /* Clients marquee */
     .clients { border-top: 1px solid var(--rule); padding-top: 48px; }
     .clients__label {
       font-size: 11px;
@@ -379,16 +379,31 @@
       margin-bottom: 24px;
       opacity: 0.65;
     }
-    .clients__list { display: flex; flex-wrap: wrap; gap: 10px; }
-    .clients__item {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--ink);
-      padding: 8px 22px;
-      border: 1px solid var(--rule);
-      border-radius: 100px;
-      white-space: nowrap;
+    .clients__marquee-outer {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
     }
+    .clients__marquee-track {
+      display: flex;
+      gap: 64px;
+      width: max-content;
+      animation: clients-scroll 34s linear infinite;
+      align-items: center;
+    }
+    .clients__marquee-track:hover { animation-play-state: paused; }
+    @keyframes clients-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .clients__marquee-track img {
+      height: 22px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(100%) opacity(0.45);
+      transition: filter 0.2s;
+    }
+    .clients__marquee-track img:hover { filter: grayscale(0%) opacity(0.85); }
 
 
     /* ═══════════════════════════════════════════════════════
@@ -719,8 +734,8 @@
           </p>
 
           <p>
-            When Eduard moved to New York, he carried those ideas with him. He joined
-            <strong>988Manhattan</strong>, an incubator that became the crucible for the next three years —
+            When Eduard moved to New York, he carried those ideas with him. He created
+            <strong>988Manhattan</strong> — an incubator that became the crucible for the next three years,
             where the conceptual arguments of his thesis were tested, challenged, and eventually
             shaped into a business model capable of surviving contact with one of the most
             competitive real estate markets on Earth.
@@ -811,7 +826,7 @@
           <div class="eyebrow">The Symbol</div>
           <div class="rule-bar"></div>
 
-          <h2>A cocoon is not a container. It is a transformation in progress.</h2>
+          <h2>Cocoon is transformation.</h2>
 
           <p>
             Eduard has always taken nature as his primary design reference. Not as decoration,
@@ -882,25 +897,47 @@
         </div>
         <div class="stat-tile">
           <div class="stat-tile__number">7</div>
-          <div class="stat-tile__label">Years · Profitable</div>
+          <div class="stat-tile__label">Years in New York City</div>
           <div class="stat-tile__sub">No venture capital · No outside debt</div>
         </div>
       </div>
 
       <div class="clients">
         <div class="clients__label">Trusted by</div>
-        <div class="clients__list">
-          <span class="clients__item">Lego</span>
-          <span class="clients__item">Fendi</span>
-          <span class="clients__item">Netflix</span>
-          <span class="clients__item">HBO</span>
-          <span class="clients__item">Apple</span>
-          <span class="clients__item">Google</span>
-          <span class="clients__item">Pepsi</span>
-          <span class="clients__item">New York Times</span>
-          <span class="clients__item">Dolce &amp; Gabbana</span>
-          <span class="clients__item">Delta × Amex</span>
-          <span class="clients__item">Djerf Avenue</span>
+        <div class="clients__marquee-outer">
+          <div class="clients__marquee-track">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/netflix.svg" alt="Netflix">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/07/nike.png" alt="Nike">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/hbo.svg" alt="HBO">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/sephora.svg" alt="Sephora">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/google.svg" alt="Google">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/vogue.svg" alt="Vogue">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/apple-logo.svg" alt="Apple">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/amazon.svg" alt="Amazon">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/mastercard.svg" alt="Mastercard">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/disney.svg" alt="Disney">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2025/04/Loreal.png" alt="L'Oréal">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/ABInBevblack.svg" alt="AB InBev">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/ticktok.svg" alt="TikTok">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2025/04/Smuggler.png" alt="Smuggler">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/the-new-times.svg" alt="The New York Times">
+            <!-- Duplicate for seamless loop -->
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/netflix.svg" alt="Netflix">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/07/nike.png" alt="Nike">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/hbo.svg" alt="HBO">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/sephora.svg" alt="Sephora">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/google.svg" alt="Google">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/vogue.svg" alt="Vogue">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/apple-logo.svg" alt="Apple">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/amazon.svg" alt="Amazon">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/mastercard.svg" alt="Mastercard">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/disney.svg" alt="Disney">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2025/04/Loreal.png" alt="L'Oréal">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/ABInBevblack.svg" alt="AB InBev">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/ticktok.svg" alt="TikTok">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2025/04/Smuggler.png" alt="Smuggler">
+            <img src="https://cocoonflexspaces.com/wp-content/uploads/2024/05/the-new-times.svg" alt="The New York Times">
+          </div>
         </div>
       </div>
 
